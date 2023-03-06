@@ -24,7 +24,7 @@ class PropertiesViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = false
+        navigationController?.isNavigationBarHidden = true
         super.viewWillAppear(animated)
     }
     
