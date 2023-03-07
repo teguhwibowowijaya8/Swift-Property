@@ -83,6 +83,9 @@ class PropertyDetailViewController: BaseViewController {
         
         let detailSectionHeaderCellNib = UINib(nibName: DetailSectionHeaderTableViewCell.identifier, bundle: nil)
         propertyDetailTableView.register(detailSectionHeaderCellNib, forCellReuseIdentifier: DetailSectionHeaderTableViewCell.identifier)
+        
+        let propertyLocationCellNib = UINib(nibName: PropertyLocationsTableViewCell.identifier, bundle: nil)
+        propertyDetailTableView.register(propertyLocationCellNib, forCellReuseIdentifier: PropertyLocationsTableViewCell.identifier)
     }
     
     func setupRightBarButton() {
@@ -218,16 +221,19 @@ extension PropertyDetailViewController: UITableViewDelegate, UITableViewDataSour
             
             
         case .locationMapAndDetails:
-            if indexPath.row == 0 {
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailSectionHeaderTableViewCell.identifier, for: indexPath) as? DetailSectionHeaderTableViewCell
-                else { return UITableViewCell() }
-                
-                cell.setupOnlyHeader(title: "Location Map & Details")
-                
-                return cell
-            }
-            return UITableViewCell()
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyLocationsTableViewCell.identifier, for: indexPath) as? PropertyLocationsTableViewCell
+            else { return UITableViewCell() }
+            
+            cell.backgroundColor = .clear
+            cell.locations = property.locations
+            cell.setupCell()
+            
+            return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
 }
 

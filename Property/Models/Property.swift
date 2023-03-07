@@ -19,7 +19,7 @@ struct Property {
     let interiorDetailImages: [FacilityDetail]
     let constructionDetail: String
     let constructionDetailImages: [FacilityDetail]
-    let locations: [Location]
+    var locations: [Location]
     
     var priceString: String {
         return String(format: "$%d", locale: .current, price)

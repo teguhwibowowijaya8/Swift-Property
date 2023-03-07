@@ -40,7 +40,6 @@
 		7A80663229B73B650054DD03 /* PropertyLocationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80663029B73B650054DD03 /* PropertyLocationsTableViewCell.swift */; };
 		7A80663329B73B650054DD03 /* PropertyLocationsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A80663129B73B650054DD03 /* PropertyLocationsTableViewCell.xib */; };
 		7A80663729B73D800054DD03 /* LocationsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80663529B73D800054DD03 /* LocationsCollectionViewCell.swift */; };
-		7A80663829B73D800054DD03 /* LocationsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A80663629B73D800054DD03 /* LocationsCollectionViewCell.xib */; };
 		7A80663A29B740270054DD03 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80663929B740270054DD03 /* Location.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,7 +79,6 @@
 		7A80663029B73B650054DD03 /* PropertyLocationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyLocationsTableViewCell.swift; sourceTree = "<group>"; };
 		7A80663129B73B650054DD03 /* PropertyLocationsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PropertyLocationsTableViewCell.xib; sourceTree = "<group>"; };
 		7A80663529B73D800054DD03 /* LocationsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsCollectionViewCell.swift; sourceTree = "<group>"; };
-		7A80663629B73D800054DD03 /* LocationsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationsCollectionViewCell.xib; sourceTree = "<group>"; };
 		7A80663929B740270054DD03 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -285,7 +283,6 @@
 			isa = PBXGroup;
 			children = (
 				7A80663529B73D800054DD03 /* LocationsCollectionViewCell.swift */,
-				7A80663629B73D800054DD03 /* LocationsCollectionViewCell.xib */,
 			);
 			path = LocationsCollectionCell;
 			sourceTree = "<group>";
@@ -353,7 +350,6 @@
 				7A8065DB29B596D50054DD03 /* Assets.xcassets in Resources */,
 				7A80663329B73B650054DD03 /* PropertyLocationsTableViewCell.xib in Resources */,
 				7A8065F629B59E350054DD03 /* PropertyTableViewCell.xib in Resources */,
-				7A80663829B73D800054DD03 /* LocationsCollectionViewCell.xib in Resources */,
 				7A80660929B5AD5C0054DD03 /* PropertyReviewCollectionViewCell.xib in Resources */,
 				7A80662C29B718EA0054DD03 /* DetailSectionHeaderTableViewCell.xib in Resources */,
 				7A8065D929B596D40054DD03 /* Main.storyboard in Resources */,

@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct Location {
-    var place: String
-    var image: String
+struct Location: Equatable {
+    let place: String
+    let image: String
+    var isSelected: Bool = false
+    
+    mutating func changeIsSelected() {
+        isSelected.toggle()
+    }
 }
