@@ -7,10 +7,25 @@
 
 import UIKit
 
+
+enum ImageAttachmentType {
+    case named
+    case systemName
+}
+
 extension UILabel {
-    func textWithAttachment(text: String, imageName: String) {
+    func textWithAttachment(
+        text: String,
+        imageName: String,
+        imageType: ImageAttachmentType = .named,
+        font: UIFont = TextSize.detail
+    ) {
         let attachment = NSTextAttachment()
-        attachment.image = UIImage(named: imageName)
+        if imageType == .named { attachment.image = UIImage(named: imageName) }
+        else {
+            attachment.image = UIImage(systemName: imageName)
+            attachment.image = attachment.image?.withTintColor(MainColor.silver)
+        }
         
         let textAttachment = NSMutableAttributedString(attachment: attachment)
         textAttachment.append(NSAttributedString(string: " \(text)"))

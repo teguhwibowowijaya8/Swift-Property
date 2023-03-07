@@ -17,33 +17,33 @@
                 <rect key="frame" x="0.0" y="0.0" width="281" height="304"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VqW-i1-pOh">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VqW-i1-pOh" customClass="CardView" customModule="Property" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="281" height="304"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LYg-MO-wh5">
                                 <rect key="frame" x="10" y="10" width="261" height="284"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VZU-Jc-Nkw">
-                                        <rect key="frame" x="0.0" y="0.0" width="261" height="53"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="261" height="45"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ef3-OC-TJ8">
-                                                <rect key="frame" x="0.0" y="2" width="53" height="49.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="2" width="45" height="41.666666666666671"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="ef3-OC-TJ8" secondAttribute="height" id="97s-RR-XEP"/>
-                                                    <constraint firstAttribute="width" priority="999" constant="30" id="T7b-h0-LoK"/>
+                                                    <constraint firstAttribute="width" constant="45" id="T7b-h0-LoK"/>
                                                 </constraints>
                                             </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="243" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xv9-JQ-6GI">
-                                                <rect key="frame" x="61" y="0.0" width="200" height="48.666666666666664"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="243" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Xv9-JQ-6GI">
+                                                <rect key="frame" x="53" y="0.0" width="208" height="45"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDU-0C-JRw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="20.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="208" height="20"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHU-KX-n6a">
-                                                        <rect key="frame" x="0.0" y="28.333333333333336" width="200" height="20.333333333333336"/>
+                                                        <rect key="frame" x="0.0" y="25" width="208" height="20"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -53,7 +53,7 @@
                                         </subviews>
                                     </stackView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAv-AC-qlf">
-                                        <rect key="frame" x="0.0" y="63" width="261" height="193"/>
+                                        <rect key="frame" x="0.0" y="55" width="261" height="201"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor"/>
@@ -87,6 +87,14 @@
                 <constraint firstItem="VqW-i1-pOh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zXy-yp-iob"/>
             </constraints>
             <size key="customSize" width="281" height="304"/>
+            <connections>
+                <outlet property="reviewCardView" destination="VqW-i1-pOh" id="ocJ-Cc-zZd"/>
+                <outlet property="reviewRatingStackView" destination="RdC-W5-hBB" id="XCI-Sc-CyT"/>
+                <outlet property="reviewTextView" destination="bAv-AC-qlf" id="MJc-bk-weJ"/>
+                <outlet property="reviewerImage" destination="ef3-OC-TJ8" id="R4O-TH-wTT"/>
+                <outlet property="reviewerName" destination="pDU-0C-JRw" id="noe-dh-ADr"/>
+                <outlet property="reviewerPosition" destination="IHU-KX-n6a" id="P9G-T4-XSe"/>
+            </connections>
             <point key="canvasLocation" x="213" y="37"/>
         </collectionViewCell>
     </objects>

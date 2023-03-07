@@ -19,6 +19,7 @@ struct Property {
     let interiorDetailImages: [FacilityDetail]
     let constructionDetail: String
     let constructionDetailImages: [FacilityDetail]
+    let locations: [Location]
     
     var priceString: String {
         return String(format: "$%d", locale: .current, price)
@@ -26,6 +27,10 @@ struct Property {
     
     var sizeString: String {
         return String(format: "%dsqft", locale: .current, size)
+    }
+    
+    var facilitiesCount: Int {
+        return facilities.kitchens.count + facilities.beds.count + facilities.baths.count
     }
     
 }

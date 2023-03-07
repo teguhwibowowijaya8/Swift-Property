@@ -7,31 +7,32 @@
 
 import UIKit
 
-class PropertiesViewController: UIViewController {
+class PropertiesViewController: BaseViewController {
     
     @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet weak var filterButton: DefaultButton!
     @IBOutlet weak var propertiesTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        view.backgroundColor = MainColor.background
         setupSearchTextField()
         setupFilterButton()
         setupTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = true
         super.viewWillAppear(animated)
+        propertiesTableView.backgroundColor = .clear
+        navigationController?.isNavigationBarHidden = true
     }
     
     private func setupTableView() {
         propertiesTableView.delegate = self
         propertiesTableView.dataSource = self
         propertiesTableView.backgroundColor = .clear
+        propertiesTableView.separatorStyle = .none
         
         let propertyNib = UINib(nibName: PropertyTableViewCell.identifier, bundle: nil)
         propertiesTableView.register(propertyNib, forCellReuseIdentifier: PropertyTableViewCell.identifier)
@@ -69,15 +70,8 @@ class PropertiesViewController: UIViewController {
     }
     
     private func setupFilterButton() {
-        filterButton.backgroundColor = MainColor.purple
-        filterButton.tintColor = .white
-        filterButton.layer.cornerRadius = 12
-        
         filterButton.setTitle("Filters", for: .normal)
-        filterButton.titleLabel?.adjustsFontSizeToFitWidth = true
-        filterButton.titleLabel?.minimumScaleFactor = 0.5
-        filterButton.titleLabel?.lineBreakMode = .byTruncatingTail
-        filterButton.titleLabel?.numberOfLines = 1
+        filterButton.configureTitleLabel()
         
         filterButton.setImage(UIImage(systemName: "line.3.horizontal.decrease.circle.fill"), for: .normal)
         filterButton.imageView?.contentMode = .scaleAspectFit
@@ -95,60 +89,64 @@ extension PropertiesViewController: UITableViewDelegate, UITableViewDataSource {
         else { return UITableViewCell() }
         
         propertyTableCell.backgroundColor = .clear
-        propertyTableCell.setupCell(property: Properties.data[indexPath.row])
+        propertyTableCell.property = Properties.data[indexPath.row]
+        propertyTableCell.delegate = self
+        
+        if indexPath.row == 0 {
+            let sectionHeader = self.sectionHeader()
+            propertyTableCell.setupCell(showHeader: true, headerView: sectionHeader)
+        } else {
+            propertyTableCell.setupCell()
+        }
+        
         
         return propertyTableCell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let propertyDetailVC = storyboard.instantiateViewController(withIdentifier: PropertyDetailViewController.identifier) as? PropertyDetailViewController {
-            
-            propertyDetailVC.property = Properties.data[indexPath.row]
-            navigationController?.navigationBar.topItem?.backButtonTitle = "Property Details"
-            navigationController?.navigationBar.tintColor = .black
-            navigationController?.pushViewController(propertyDetailVC, animated: true)
-        }
-        
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
 }
 
 
 // MARK: Properties Table View Header
 extension PropertiesViewController {
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return sectionHeader()
-    }
     
-    private func sectionHeader() -> UITableViewHeaderFooterView {
-        let headerView = UITableViewHeaderFooterView()
-        
-        let headerTitleLabel = UILabel()
-        headerTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        headerTitleLabel.text = "Matched Property"
-        headerTitleLabel.font = TextSize.title
-        
+    private func sectionHeader() -> UIView {
         let headerSeeAllButton = UIButton(type: .system)
         headerSeeAllButton.translatesAutoresizingMaskIntoConstraints = false
         headerSeeAllButton.setTitle("See All >", for: .normal)
         headerSeeAllButton.setTitleColor(.green.withAlphaComponent(0.7), for: .normal)
         headerSeeAllButton.titleLabel?.font = .boldSystemFont(ofSize: 14)
         
-        headerView.addSubview(headerTitleLabel)
-        headerView.addSubview(headerSeeAllButton)
-        
-        NSLayoutConstraint.activate([
-            headerTitleLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 8),
-            headerTitleLabel.leftAnchor.constraint(equalTo: headerView.leftAnchor, constant: 20),
-            headerTitleLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -8),
-            headerTitleLabel.rightAnchor.constraint(equalTo: headerSeeAllButton.leftAnchor, constant: 8),
-            
-            headerSeeAllButton.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 8),
-            headerSeeAllButton.rightAnchor.constraint(equalTo: headerView.rightAnchor, constant: -20),
-            headerSeeAllButton.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -8),
-        ])
+        let headerView = SectionHeader()
+        headerView.configure(title: "Matched Property", rightComponent: headerSeeAllButton)
         
         return headerView
     }
 }
 
+// MARK: Property Table View Delegate for on property card selected
+extension PropertiesViewController: PropertyTableViewDelegate {
+    func onPropertySelected(property: Property) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let propertyDetailVC = storyboard.instantiateViewController(withIdentifier: PropertyDetailViewController.identifier) as? PropertyDetailViewController {
+            
+            propertyDetailVC.property = property
+            navigationController?.delegate = self
+            navigationController?.navigationBar.topItem?.backButtonTitle = "Property Details"
+            navigationController?.navigationBar.tintColor = .black
+            navigationController?.pushViewController(propertyDetailVC, animated: true)
+        }
+    }
+}
+
+extension PropertiesViewController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        UIView.preventDimmingView()
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        UIView.allowDimmingView()
+    }
+}

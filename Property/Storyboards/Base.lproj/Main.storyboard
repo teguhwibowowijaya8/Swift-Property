@@ -11,7 +11,7 @@
         <!--Properties View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PropertiesViewController" customModule="Property" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PropertiesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="PropertiesViewController" customModule="Property" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,13 +32,13 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4Y-r2-FVF">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4Y-r2-FVF" customClass="DefaultButton" customModule="Property" customModuleProvider="target">
                                                 <rect key="frame" x="253" y="0.0" width="100" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="mYY-sC-9oF"/>
                                                 </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -67,7 +67,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="OsX-si-vX5"/>
                     <connections>
-                        <outlet property="filterButton" destination="b4Y-r2-FVF" id="nQ6-qg-940"/>
+                        <outlet property="filterButton" destination="b4Y-r2-FVF" id="N2L-ee-hOX"/>
                         <outlet property="propertiesTableView" destination="oTT-hs-lZb" id="tyr-z3-YR9"/>
                         <outlet property="searchTextField" destination="bzu-Y9-ha3" id="X1j-ua-otS"/>
                     </connections>
@@ -85,21 +85,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="95J-cH-sCy">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="694"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T56-2a-V3X">
+                                <rect key="frame" x="0.0" y="753" width="393" height="65"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qT-Hi-c9v" customClass="DefaultButton" customModule="Property" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="10" width="343" height="45"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="7qT-Hi-c9v" secondAttribute="trailing" constant="25" id="80B-83-mUJ"/>
+                                    <constraint firstAttribute="height" constant="65" id="MWW-iv-0sW"/>
+                                    <constraint firstAttribute="bottom" secondItem="7qT-Hi-c9v" secondAttribute="bottom" constant="10" id="Q2b-kB-rBM"/>
+                                    <constraint firstItem="7qT-Hi-c9v" firstAttribute="leading" secondItem="T56-2a-V3X" secondAttribute="leading" constant="25" id="wwE-RF-qQG"/>
+                                    <constraint firstItem="7qT-Hi-c9v" firstAttribute="top" secondItem="T56-2a-V3X" secondAttribute="top" constant="10" id="zpG-Aj-fwQ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aXr-hb-vth"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="aXr-hb-vth" firstAttribute="bottom" secondItem="95J-cH-sCy" secondAttribute="bottom" id="QDg-Ds-kwg"/>
-                            <constraint firstItem="95J-cH-sCy" firstAttribute="top" secondItem="aXr-hb-vth" secondAttribute="top" id="d1L-3H-7ak"/>
+                            <constraint firstItem="T56-2a-V3X" firstAttribute="leading" secondItem="aXr-hb-vth" secondAttribute="leading" id="0kZ-a3-H4i"/>
+                            <constraint firstItem="95J-cH-sCy" firstAttribute="top" secondItem="aXr-hb-vth" secondAttribute="top" id="Aak-ZE-jIx"/>
+                            <constraint firstItem="aXr-hb-vth" firstAttribute="trailing" secondItem="T56-2a-V3X" secondAttribute="trailing" id="Df9-cl-f43"/>
+                            <constraint firstItem="T56-2a-V3X" firstAttribute="top" secondItem="95J-cH-sCy" secondAttribute="bottom" id="Fwe-ld-a8C"/>
                             <constraint firstItem="95J-cH-sCy" firstAttribute="leading" secondItem="aXr-hb-vth" secondAttribute="leading" id="ebo-YZ-M4q"/>
+                            <constraint firstItem="aXr-hb-vth" firstAttribute="bottom" secondItem="T56-2a-V3X" secondAttribute="bottom" id="ief-oY-mrM"/>
                             <constraint firstItem="aXr-hb-vth" firstAttribute="trailing" secondItem="95J-cH-sCy" secondAttribute="trailing" id="kiz-ni-Drd"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="propertyDetailTableView" destination="95J-cH-sCy" id="5eD-QH-AIw"/>
+                        <outlet property="propertySaveButton" destination="7qT-Hi-c9v" id="zwk-bV-m1G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vym-Im-Eq3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
