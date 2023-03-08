@@ -13,6 +13,6 @@ struct Location: Equatable {
     var isSelected: Bool = false
     
     mutating func changeIsSelected() {
-        isSelected.toggle()
+        isSelected = !isSelected
     }
 }

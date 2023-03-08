@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mo1-sc-UjK" customClass="SectionHeader" customModule="Property" customModuleProvider="target">
-                        <rect key="frame" x="20" y="0.0" width="297" height="45"/>
+                        <rect key="frame" x="20" y="63" width="297" height="45"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="YJm-4c-vNy"/>
@@ -26,8 +26,11 @@
                         </constraints>
                     </view>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mSe-Ry-xBd">
-                        <rect key="frame" x="0.0" y="65" width="337" height="113"/>
+                        <rect key="frame" x="0.0" y="108" width="337" height="70"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="xf4-ZT-GDH"/>
+                        </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3TS-vC-4Qh">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -43,9 +46,9 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="mSe-Ry-xBd" firstAttribute="top" secondItem="Mo1-sc-UjK" secondAttribute="bottom" constant="20" id="5iE-I0-5nD"/>
+                    <constraint firstItem="mSe-Ry-xBd" firstAttribute="top" secondItem="Mo1-sc-UjK" secondAttribute="bottom" id="5iE-I0-5nD"/>
                     <constraint firstItem="mSe-Ry-xBd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="esq-4R-DSP"/>
-                    <constraint firstItem="Mo1-sc-UjK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="gmM-GE-rjY"/>
+                    <constraint firstItem="Mo1-sc-UjK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" id="gmM-GE-rjY"/>
                     <constraint firstAttribute="bottom" secondItem="9Mz-fi-4BB" secondAttribute="bottom" constant="20" id="jGJ-Jg-HfD"/>
                     <constraint firstItem="9Mz-fi-4BB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="mhV-Yw-mjc"/>
                     <constraint firstAttribute="trailing" secondItem="mSe-Ry-xBd" secondAttribute="trailing" id="nmU-uW-KO0"/>

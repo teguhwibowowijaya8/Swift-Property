@@ -38,7 +38,7 @@ class PropertyTableViewCell: UITableViewCell {
             setupConstraintHeader(headerView)
             propertyHeaderView.backgroundColor = .clear
         }
-        else { propertyHeaderView.removeFromSuperview() }
+        else { propertyHeaderView?.removeFromSuperview() }
         
         guard let property = property else {return}
         
@@ -74,6 +74,7 @@ class PropertyTableViewCell: UITableViewCell {
     
     @objc func onCardSelected(_ sender: UIButton) {
         guard let property = property else {return}
+        
         delegate?.onPropertySelected(property: property)
     }
     

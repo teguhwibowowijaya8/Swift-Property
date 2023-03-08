@@ -10,17 +10,20 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="141" id="KGk-i7-Jjw" customClass="PropertyReviewTableViewCell" customModule="Property" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="319" height="141"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="293" id="KGk-i7-Jjw" customClass="PropertyReviewTableViewCell" customModule="Property" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="333" height="293"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="319" height="141"/>
+                <rect key="frame" x="0.0" y="0.0" width="333" height="293"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="yUu-JZ-1Q9">
-                        <rect key="frame" x="0.0" y="0.0" width="319" height="141"/>
+                        <rect key="frame" x="0.0" y="0.0" width="333" height="293"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hhB-MR-tMl">
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="999" constant="500" id="gdW-Yh-QP1"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hhB-MR-tMl">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -29,17 +32,18 @@
                     </collectionView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="yUu-JZ-1Q9" secondAttribute="bottom" id="71U-Zq-Mlj"/>
-                    <constraint firstItem="yUu-JZ-1Q9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="9vN-gO-EaQ"/>
-                    <constraint firstItem="yUu-JZ-1Q9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="BS6-9o-ueR"/>
-                    <constraint firstAttribute="trailing" secondItem="yUu-JZ-1Q9" secondAttribute="trailing" id="vra-4E-85M"/>
+                    <constraint firstAttribute="trailing" secondItem="yUu-JZ-1Q9" secondAttribute="trailing" id="EXV-B6-6ma"/>
+                    <constraint firstItem="yUu-JZ-1Q9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="NoL-F6-k32"/>
+                    <constraint firstAttribute="bottom" secondItem="yUu-JZ-1Q9" secondAttribute="bottom" id="UUG-aU-0gl"/>
+                    <constraint firstItem="yUu-JZ-1Q9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ny1-au-rNS"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="collectionViewHeight" destination="gdW-Yh-QP1" id="w4n-dO-iI7"/>
                 <outlet property="propertyReviewCollectionView" destination="yUu-JZ-1Q9" id="syR-Ih-TUF"/>
             </connections>
-            <point key="canvasLocation" x="-61.832061068702288" y="53.87323943661972"/>
+            <point key="canvasLocation" x="-51.145038167938928" y="107.3943661971831"/>
         </tableViewCell>
     </objects>
     <resources>

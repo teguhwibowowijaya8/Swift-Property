@@ -41,6 +41,11 @@
 		7A80663329B73B650054DD03 /* PropertyLocationsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A80663129B73B650054DD03 /* PropertyLocationsTableViewCell.xib */; };
 		7A80663729B73D800054DD03 /* LocationsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80663529B73D800054DD03 /* LocationsCollectionViewCell.swift */; };
 		7A80663A29B740270054DD03 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80663929B740270054DD03 /* Location.swift */; };
+		7A80663C29B82D520054DD03 /* CustomBackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80663B29B82D520054DD03 /* CustomBackButtonView.swift */; };
+		7A80663F29B839380054DD03 /* TermPointTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80663E29B839380054DD03 /* TermPointTableViewCell.swift */; };
+		7A80664129B840CA0054DD03 /* TermOfServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80664029B840CA0054DD03 /* TermOfServices.swift */; };
+		7A80664329B840DE0054DD03 /* TermOfService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80664229B840DE0054DD03 /* TermOfService.swift */; };
+		7A80664629B863810054DD03 /* ReviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80664529B863810054DD03 /* ReviewCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +85,11 @@
 		7A80663129B73B650054DD03 /* PropertyLocationsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PropertyLocationsTableViewCell.xib; sourceTree = "<group>"; };
 		7A80663529B73D800054DD03 /* LocationsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A80663929B740270054DD03 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		7A80663B29B82D520054DD03 /* CustomBackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButtonView.swift; sourceTree = "<group>"; };
+		7A80663E29B839380054DD03 /* TermPointTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermPointTableViewCell.swift; sourceTree = "<group>"; };
+		7A80664029B840CA0054DD03 /* TermOfServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermOfServices.swift; sourceTree = "<group>"; };
+		7A80664229B840DE0054DD03 /* TermOfService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermOfService.swift; sourceTree = "<group>"; };
+		7A80664529B863810054DD03 /* ReviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +170,7 @@
 			children = (
 				7A8065F229B59E100054DD03 /* Shared */,
 				7A80660A29B5AD9B0054DD03 /* PropertyDetail */,
+				7A80663D29B838C40054DD03 /* TermOfService */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -167,11 +178,8 @@
 		7A8065E929B5975A0054DD03 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7A8065FB29B5A6520054DD03 /* Property.swift */,
-				7A80660129B5A8050054DD03 /* Review.swift */,
-				7A8065FD29B5A7DF0054DD03 /* Facilities.swift */,
-				7A80660329B5A9A60054DD03 /* FacilityDetail.swift */,
-				7A80663929B740270054DD03 /* Location.swift */,
+				7A80664429B8412B0054DD03 /* Property */,
+				7A80664229B840DE0054DD03 /* TermOfService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -180,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				7A80660C29B5C1E90054DD03 /* Properties.swift */,
+				7A80664029B840CA0054DD03 /* TermOfServices.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -201,6 +210,7 @@
 				7A80661B29B6D02D0054DD03 /* BaseViewController.swift */,
 				7A80662329B6F6DF0054DD03 /* SectionHeader.swift */,
 				7A80662729B70E300054DD03 /* DefaultButton.swift */,
+				7A80663B29B82D520054DD03 /* CustomBackButtonView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -256,6 +266,7 @@
 				7A80660529B5AD140054DD03 /* PropertyReviewCollectionCell */,
 				7A80661F29B6D73E0054DD03 /* PropertyReviewTableViewCell.swift */,
 				7A80662029B6D73E0054DD03 /* PropertyReviewTableViewCell.xib */,
+				7A80664529B863810054DD03 /* ReviewCollectionViewCell.swift */,
 			);
 			path = PropertyReviewTableCell;
 			sourceTree = "<group>";
@@ -285,6 +296,26 @@
 				7A80663529B73D800054DD03 /* LocationsCollectionViewCell.swift */,
 			);
 			path = LocationsCollectionCell;
+			sourceTree = "<group>";
+		};
+		7A80663D29B838C40054DD03 /* TermOfService */ = {
+			isa = PBXGroup;
+			children = (
+				7A80663E29B839380054DD03 /* TermPointTableViewCell.swift */,
+			);
+			path = TermOfService;
+			sourceTree = "<group>";
+		};
+		7A80664429B8412B0054DD03 /* Property */ = {
+			isa = PBXGroup;
+			children = (
+				7A8065FB29B5A6520054DD03 /* Property.swift */,
+				7A80660129B5A8050054DD03 /* Review.swift */,
+				7A8065FD29B5A7DF0054DD03 /* Facilities.swift */,
+				7A80660329B5A9A60054DD03 /* FacilityDetail.swift */,
+				7A80663929B740270054DD03 /* Location.swift */,
+			);
+			path = Property;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A8065FC29B5A6520054DD03 /* Property.swift in Sources */,
+				7A80664629B863810054DD03 /* ReviewCollectionViewCell.swift in Sources */,
 				7A8065F529B59E350054DD03 /* PropertyTableViewCell.swift in Sources */,
 				7A8065EE29B5989F0054DD03 /* TermOfServiceViewController.swift in Sources */,
 				7A80663229B73B650054DD03 /* PropertyLocationsTableViewCell.swift in Sources */,
@@ -371,7 +403,9 @@
 				7A80661C29B6D02D0054DD03 /* BaseViewController.swift in Sources */,
 				7A80663A29B740270054DD03 /* Location.swift in Sources */,
 				7A80662129B6D73E0054DD03 /* PropertyReviewTableViewCell.swift in Sources */,
+				7A80664329B840DE0054DD03 /* TermOfService.swift in Sources */,
 				7A8065D629B596D40054DD03 /* PropertiesViewController.swift in Sources */,
+				7A80663C29B82D520054DD03 /* CustomBackButtonView.swift in Sources */,
 				7A80660229B5A8050054DD03 /* Review.swift in Sources */,
 				7A8065D229B596D40054DD03 /* AppDelegate.swift in Sources */,
 				7A80660F29B5C46B0054DD03 /* Images.swift in Sources */,
@@ -380,12 +414,14 @@
 				7A8065D429B596D40054DD03 /* SceneDelegate.swift in Sources */,
 				7A80661129B5CBAF0054DD03 /* TextSize.swift in Sources */,
 				7A80660D29B5C1E90054DD03 /* Properties.swift in Sources */,
+				7A80664129B840CA0054DD03 /* TermOfServices.swift in Sources */,
 				7A8065FA29B5A3490054DD03 /* CardView.swift in Sources */,
 				7A8065FE29B5A7DF0054DD03 /* Facilities.swift in Sources */,
 				7A8065F129B5996D0054DD03 /* MainColor.swift in Sources */,
 				7A80660429B5A9A60054DD03 /* FacilityDetail.swift in Sources */,
 				7A80662429B6F6DF0054DD03 /* SectionHeader.swift in Sources */,
 				7A80660829B5AD5C0054DD03 /* PropertyReviewCollectionViewCell.swift in Sources */,
+				7A80663F29B839380054DD03 /* TermPointTableViewCell.swift in Sources */,
 				7A80661829B6CB3A0054DD03 /* UIView+Transition.swift in Sources */,
 				7A80661429B5CFDC0054DD03 /* UILabel+TextWithAttachment.swift in Sources */,
 				7A80662829B70E300054DD03 /* DefaultButton.swift in Sources */,

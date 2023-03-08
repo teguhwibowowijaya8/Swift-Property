@@ -54,7 +54,6 @@ class PropertyDetailViewController: BaseViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        setupRightBarButton()
         setupTableView()
         setupPropertySaveButton()
     }
@@ -62,12 +61,30 @@ class PropertyDetailViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         propertyDetailTableView.backgroundColor = .clear
+        setupLeftBarButtonItem()
+        setupRightBarButton()
         navigationController?.isNavigationBarHidden = false
     }
     
     func setupPropertySaveButton() {
         propertySaveButton.setTitle("Save", for: .normal)
         propertySaveButton.configureTitleLabel(isBold: true)
+    }
+}
+
+// MARK: Setup header and table view
+extension PropertyDetailViewController {
+    func setupLeftBarButtonItem() {
+        let leftBarButtonView = CustomBackButtonView(type: .system)
+        leftBarButtonView.title = "Property Details"
+        leftBarButtonView.onButtonSelected = onLeftBarButtonSelected
+        let leftBarButtonButton = UIBarButtonItem(customView: leftBarButtonView)
+        
+        navigationItem.setLeftBarButton(leftBarButtonButton, animated: true)
+    }
+    
+    func onLeftBarButtonSelected() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func setupTableView() {
@@ -100,12 +117,12 @@ class PropertyDetailViewController: BaseViewController {
         rightNavbarButton.addTarget(self, action: #selector(onRightBarButtonSelected), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
-            rightButtonImageView.topAnchor.constraint(equalTo: rightNavbarButton.topAnchor, constant: 8),
+            rightButtonImageView.topAnchor.constraint(greaterThanOrEqualTo: rightNavbarButton.topAnchor, constant: 8),
             rightButtonImageView.leftAnchor.constraint(equalTo: rightNavbarButton.leftAnchor, constant: 8),
             rightButtonImageView.rightAnchor.constraint(equalTo: rightNavbarButton.rightAnchor, constant: -8),
-            rightButtonImageView.bottomAnchor.constraint(equalTo: rightNavbarButton.bottomAnchor, constant: -8),
-            rightButtonImageView.heightAnchor.constraint(equalToConstant: 18),
-            rightButtonImageView.widthAnchor.constraint(equalToConstant: 18)
+            rightButtonImageView.bottomAnchor.constraint(lessThanOrEqualTo: rightNavbarButton.bottomAnchor, constant: -8),
+            rightButtonImageView.heightAnchor.constraint(lessThanOrEqualToConstant: 18),
+            rightButtonImageView.widthAnchor.constraint(equalTo: rightButtonImageView.widthAnchor)
         ])
         
         let rightBarButton = UIBarButtonItem(customView: rightNavbarButton)
@@ -115,8 +132,6 @@ class PropertyDetailViewController: BaseViewController {
     @objc func onRightBarButtonSelected(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let termOfServiceVC = storyboard.instantiateViewController(withIdentifier: TermOfServiceViewController.identifier) as? TermOfServiceViewController {
-            
-            navigationController?.navigationBar.topItem?.backButtonTitle = "Terms of Service"
             navigationController?.pushViewController(termOfServiceVC, animated: true)
         }
     }
@@ -170,6 +185,7 @@ extension PropertyDetailViewController: UITableViewDelegate, UITableViewDataSour
             
             propertyReviewCell.backgroundColor = .clear
             propertyReviewCell.reviews = property.review
+            propertyReviewCell.screenWidth = view.safeAreaLayoutGuide.layoutFrame.width
             propertyReviewCell.setupCollectionView()
             
             return propertyReviewCell

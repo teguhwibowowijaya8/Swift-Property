@@ -52,6 +52,7 @@ class LocationsCollectionViewCell: UICollectionViewCell {
     
     func setupIsSelectedButton() {
         locationPlaceButton.tintColor = .white
+        locationPlaceButton.titleLabel?.font = TextSize.title2
         locationPlaceButton.backgroundColor = MainColor.orange
     }
     

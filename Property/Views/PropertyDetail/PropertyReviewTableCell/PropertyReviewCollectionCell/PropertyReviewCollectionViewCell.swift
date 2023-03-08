@@ -18,6 +18,13 @@ class PropertyReviewCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var reviewRatingStackView: UIStackView!
     
     var review: Review?
+    var cellHeight: CGFloat = 0 {
+        didSet {
+            if cellHeight > 0 {
+                self.heightAnchor.constraint(equalToConstant: cellHeight).isActive = true
+            }
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

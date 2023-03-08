@@ -33,4 +33,15 @@ struct Property {
         return facilities.kitchens.count + facilities.beds.count + facilities.baths.count
     }
     
+    mutating func findLocation(_ location: Location) -> Int? {
+        let sameIndex = locations.firstIndex{$0 == location}
+        
+        if let sameIndex = sameIndex {
+            locations[sameIndex].changeIsSelected()
+            return sameIndex
+        }
+        
+        return nil
+    }
+    
 }

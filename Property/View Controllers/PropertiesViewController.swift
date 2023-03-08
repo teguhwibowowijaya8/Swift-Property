@@ -134,8 +134,6 @@ extension PropertiesViewController: PropertyTableViewDelegate {
             
             propertyDetailVC.property = property
             navigationController?.delegate = self
-            navigationController?.navigationBar.topItem?.backButtonTitle = "Property Details"
-            navigationController?.navigationBar.tintColor = .black
             navigationController?.pushViewController(propertyDetailVC, animated: true)
         }
     }
