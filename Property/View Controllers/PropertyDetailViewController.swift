@@ -103,6 +103,9 @@ extension PropertyDetailViewController {
         
         let propertyLocationCellNib = UINib(nibName: PropertyLocationsTableViewCell.identifier, bundle: nil)
         propertyDetailTableView.register(propertyLocationCellNib, forCellReuseIdentifier: PropertyLocationsTableViewCell.identifier)
+        
+        let propertyFacilitiesCellNib = UINib(nibName: PropertyFacilitiesTableViewCell.identifier, bundle: nil)
+        propertyDetailTableView.register(propertyFacilitiesCellNib, forCellReuseIdentifier: PropertyFacilitiesTableViewCell.identifier)
     }
     
     func setupRightBarButton() {
@@ -145,21 +148,13 @@ extension PropertyDetailViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let property = property else { return 0 }
         switch PropertyDetailViewSection(section) {
         case .property, .reviews, .locationMapAndDetails:
             return 1
-        case .amenities:
-            guard let toggle = toggleHeader[.amenities] else {return 0}
-            return toggle ? property.facilitiesCount + 1 : 1
-            
-        case .interiorDetails:
-            guard let toggle = toggleHeader[.interiorDetails] else {return 0}
-            return toggle ? property.interiorDetailImages.count + 1 : 1
-            
-        case .constructionDetails:
-            guard let toggle = toggleHeader[.constructionDetails] else {return 0}
-            return toggle ? property.constructionDetailImages.count + 1 : 1
+        case .amenities, .interiorDetails, .constructionDetails:
+            let headerType = PropertyDetailViewSection(section)
+            guard let toggle = toggleHeader[headerType] else {return 0}
+            return toggle ? 2 : 1
         }
     }
     
@@ -203,7 +198,12 @@ extension PropertyDetailViewController: UITableViewDelegate, UITableViewDataSour
                 return cell
             }
             
-            return UITableViewCell()
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyFacilitiesTableViewCell.identifier, for: indexPath) as? PropertyFacilitiesTableViewCell
+            else { return UITableViewCell() }
+            
+            let description = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."
+            cell.setupCell(screenWidth: view.safeAreaLayoutGuide.layoutFrame.width, facilityDescription: description)
+            return cell
             
             
         case .interiorDetails:
@@ -265,38 +265,39 @@ extension PropertyDetailViewController {
 extension PropertyDetailViewController: DetailSectionHeaderDelegate {
     func onToggleButtonSelected(of headerType: PropertyDetailViewSection) {
         guard let toggle = toggleHeader[headerType] else {return}
-        let toggleIndexPaths = getIndexPathsOfSection(of: headerType)
+//        let toggleIndexPaths = getIndexPathsOfSection(of: headerType)
         toggleHeader[headerType] = !toggle
         let headerIndex = [IndexPath(row: 0, section: headerType.rawValue)]
+        let bodyIndex = [IndexPath(row: 1, section: headerType.rawValue)]
         if toggle {
-            propertyDetailTableView.deleteRows(at: toggleIndexPaths, with: .fade)
+            propertyDetailTableView.deleteRows(at: bodyIndex, with: .fade)
         } else {
-            propertyDetailTableView.insertRows(at: toggleIndexPaths, with: .fade)
+            propertyDetailTableView.insertRows(at: bodyIndex, with: .fade)
         }
         propertyDetailTableView.reloadRows(at: headerIndex, with: .automatic)
 
         
     }
     
-    private func getIndexPathsOfSection(of headerType: PropertyDetailViewSection) -> [IndexPath] {
-        var indexPaths = [IndexPath]()
-        var count = 0
-        
-        switch headerType {
-        case .amenities:
-            count = property?.facilitiesCount ?? 0
-        case .interiorDetails:
-            count = property?.interiorDetailImages.count ?? 0
-        case .constructionDetails:
-            count = property?.constructionDetailImages.count ?? 0
-        default:
-            count = 0
-        }
-        
-        for index in 1...count {
-            indexPaths.append(IndexPath(row: index, section: headerType.rawValue))
-        }
-        
-        return indexPaths
-    }
+//    private func getIndexPathsOfSection(of headerType: PropertyDetailViewSection) -> [IndexPath] {
+//        var indexPaths = [IndexPath]()
+//        var count = 0
+//
+//        switch headerType {
+//        case .amenities:
+//            count = property?.facilitiesCount ?? 0
+//        case .interiorDetails:
+//            count = property?.interiorDetailImages.count ?? 0
+//        case .constructionDetails:
+//            count = property?.constructionDetailImages.count ?? 0
+//        default:
+//            count = 0
+//        }
+//
+//        for index in 1...count {
+//            indexPaths.append(IndexPath(row: index, section: headerType.rawValue))
+//        }
+//
+//        return indexPaths
+//    }
 }

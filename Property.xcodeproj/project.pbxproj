@@ -45,7 +45,11 @@
 		7A80663F29B839380054DD03 /* TermPointTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80663E29B839380054DD03 /* TermPointTableViewCell.swift */; };
 		7A80664129B840CA0054DD03 /* TermOfServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80664029B840CA0054DD03 /* TermOfServices.swift */; };
 		7A80664329B840DE0054DD03 /* TermOfService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80664229B840DE0054DD03 /* TermOfService.swift */; };
-		7A80664629B863810054DD03 /* ReviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80664529B863810054DD03 /* ReviewCollectionViewCell.swift */; };
+		7A80664829B8E7800054DD03 /* StarsRatingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80664729B8E7800054DD03 /* StarsRatingStackView.swift */; };
+		7A80664B29B8FD080054DD03 /* PropertyFacilitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80664929B8FD080054DD03 /* PropertyFacilitiesTableViewCell.swift */; };
+		7A80664C29B8FD080054DD03 /* PropertyFacilitiesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A80664A29B8FD080054DD03 /* PropertyFacilitiesTableViewCell.xib */; };
+		7A80665029B8FEFF0054DD03 /* FacilityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80664E29B8FEFF0054DD03 /* FacilityCollectionViewCell.swift */; };
+		7A80665129B8FEFF0054DD03 /* FacilityCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A80664F29B8FEFF0054DD03 /* FacilityCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,7 +93,11 @@
 		7A80663E29B839380054DD03 /* TermPointTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermPointTableViewCell.swift; sourceTree = "<group>"; };
 		7A80664029B840CA0054DD03 /* TermOfServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermOfServices.swift; sourceTree = "<group>"; };
 		7A80664229B840DE0054DD03 /* TermOfService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermOfService.swift; sourceTree = "<group>"; };
-		7A80664529B863810054DD03 /* ReviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		7A80664729B8E7800054DD03 /* StarsRatingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsRatingStackView.swift; sourceTree = "<group>"; };
+		7A80664929B8FD080054DD03 /* PropertyFacilitiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyFacilitiesTableViewCell.swift; sourceTree = "<group>"; };
+		7A80664A29B8FD080054DD03 /* PropertyFacilitiesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PropertyFacilitiesTableViewCell.xib; sourceTree = "<group>"; };
+		7A80664E29B8FEFF0054DD03 /* FacilityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityCollectionViewCell.swift; sourceTree = "<group>"; };
+		7A80664F29B8FEFF0054DD03 /* FacilityCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FacilityCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +235,7 @@
 		7A80660529B5AD140054DD03 /* PropertyReviewCollectionCell */ = {
 			isa = PBXGroup;
 			children = (
+				7A80664729B8E7800054DD03 /* StarsRatingStackView.swift */,
 				7A80660629B5AD5C0054DD03 /* PropertyReviewCollectionViewCell.swift */,
 				7A80660729B5AD5C0054DD03 /* PropertyReviewCollectionViewCell.xib */,
 			);
@@ -247,6 +256,9 @@
 		7A80660B29B5AF4E0054DD03 /* PropertyFacilities */ = {
 			isa = PBXGroup;
 			children = (
+				7A80664D29B8FED00054DD03 /* FacilityCollectionCell */,
+				7A80664929B8FD080054DD03 /* PropertyFacilitiesTableViewCell.swift */,
+				7A80664A29B8FD080054DD03 /* PropertyFacilitiesTableViewCell.xib */,
 			);
 			path = PropertyFacilities;
 			sourceTree = "<group>";
@@ -266,7 +278,6 @@
 				7A80660529B5AD140054DD03 /* PropertyReviewCollectionCell */,
 				7A80661F29B6D73E0054DD03 /* PropertyReviewTableViewCell.swift */,
 				7A80662029B6D73E0054DD03 /* PropertyReviewTableViewCell.xib */,
-				7A80664529B863810054DD03 /* ReviewCollectionViewCell.swift */,
 			);
 			path = PropertyReviewTableCell;
 			sourceTree = "<group>";
@@ -316,6 +327,15 @@
 				7A80663929B740270054DD03 /* Location.swift */,
 			);
 			path = Property;
+			sourceTree = "<group>";
+		};
+		7A80664D29B8FED00054DD03 /* FacilityCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				7A80664E29B8FEFF0054DD03 /* FacilityCollectionViewCell.swift */,
+				7A80664F29B8FEFF0054DD03 /* FacilityCollectionViewCell.xib */,
+			);
+			path = FacilityCollectionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,10 +397,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A8065DE29B596D50054DD03 /* LaunchScreen.storyboard in Resources */,
+				7A80665129B8FEFF0054DD03 /* FacilityCollectionViewCell.xib in Resources */,
 				7A80662229B6D73E0054DD03 /* PropertyReviewTableViewCell.xib in Resources */,
 				7A8065DB29B596D50054DD03 /* Assets.xcassets in Resources */,
 				7A80663329B73B650054DD03 /* PropertyLocationsTableViewCell.xib in Resources */,
 				7A8065F629B59E350054DD03 /* PropertyTableViewCell.xib in Resources */,
+				7A80664C29B8FD080054DD03 /* PropertyFacilitiesTableViewCell.xib in Resources */,
 				7A80660929B5AD5C0054DD03 /* PropertyReviewCollectionViewCell.xib in Resources */,
 				7A80662C29B718EA0054DD03 /* DetailSectionHeaderTableViewCell.xib in Resources */,
 				7A8065D929B596D40054DD03 /* Main.storyboard in Resources */,
@@ -395,11 +417,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A8065FC29B5A6520054DD03 /* Property.swift in Sources */,
-				7A80664629B863810054DD03 /* ReviewCollectionViewCell.swift in Sources */,
 				7A8065F529B59E350054DD03 /* PropertyTableViewCell.swift in Sources */,
 				7A8065EE29B5989F0054DD03 /* TermOfServiceViewController.swift in Sources */,
 				7A80663229B73B650054DD03 /* PropertyLocationsTableViewCell.swift in Sources */,
 				7A8065EC29B598840054DD03 /* PropertyDetailViewController.swift in Sources */,
+				7A80664B29B8FD080054DD03 /* PropertyFacilitiesTableViewCell.swift in Sources */,
+				7A80665029B8FEFF0054DD03 /* FacilityCollectionViewCell.swift in Sources */,
 				7A80661C29B6D02D0054DD03 /* BaseViewController.swift in Sources */,
 				7A80663A29B740270054DD03 /* Location.swift in Sources */,
 				7A80662129B6D73E0054DD03 /* PropertyReviewTableViewCell.swift in Sources */,
@@ -417,6 +440,7 @@
 				7A80664129B840CA0054DD03 /* TermOfServices.swift in Sources */,
 				7A8065FA29B5A3490054DD03 /* CardView.swift in Sources */,
 				7A8065FE29B5A7DF0054DD03 /* Facilities.swift in Sources */,
+				7A80664829B8E7800054DD03 /* StarsRatingStackView.swift in Sources */,
 				7A8065F129B5996D0054DD03 /* MainColor.swift in Sources */,
 				7A80660429B5A9A60054DD03 /* FacilityDetail.swift in Sources */,
 				7A80662429B6F6DF0054DD03 /* SectionHeader.swift in Sources */,

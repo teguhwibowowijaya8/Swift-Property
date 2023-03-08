@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="10" width="281" height="284"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VZU-Jc-Nkw">
-                                <rect key="frame" x="20" y="9.9999999999999964" width="241" height="45.666666666666657"/>
+                                <rect key="frame" x="20" y="14.999999999999996" width="241" height="45.666666666666657"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ef3-OC-TJ8">
                                         <rect key="frame" x="0.0" y="2" width="45" height="41.666666666666671"/>
@@ -50,32 +50,33 @@
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAv-AC-qlf">
-                                <rect key="frame" x="20" y="65.666666666666671" width="241" height="180.33333333333331"/>
+                                <rect key="frame" x="16" y="70.666666666666671" width="249" height="170.33333333333331"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RdC-W5-hBB">
-                                <rect key="frame" x="20" y="256" width="241" height="18"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BiJ-ES-o7c">
+                                <rect key="frame" x="20" y="251" width="241" height="18"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" priority="999" constant="18" id="EZL-F4-ejw"/>
+                                    <constraint firstAttribute="height" constant="18" id="pvF-6E-oW1"/>
                                 </constraints>
-                            </stackView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="RdC-W5-hBB" firstAttribute="leading" secondItem="VqW-i1-pOh" secondAttribute="leading" constant="20" id="AJ9-3D-9bO"/>
                             <constraint firstItem="VZU-Jc-Nkw" firstAttribute="leading" secondItem="VqW-i1-pOh" secondAttribute="leading" constant="20" id="ASr-Oa-dcN"/>
+                            <constraint firstAttribute="trailing" secondItem="BiJ-ES-o7c" secondAttribute="trailing" constant="20" id="AjF-Pn-B1g"/>
                             <constraint firstAttribute="trailing" secondItem="VZU-Jc-Nkw" secondAttribute="trailing" constant="20" id="Cf2-p5-eWV"/>
-                            <constraint firstItem="bAv-AC-qlf" firstAttribute="leading" secondItem="VqW-i1-pOh" secondAttribute="leading" constant="20" id="GxD-VC-eWq"/>
+                            <constraint firstItem="bAv-AC-qlf" firstAttribute="leading" secondItem="VqW-i1-pOh" secondAttribute="leading" constant="16" id="GxD-VC-eWq"/>
                             <constraint firstItem="bAv-AC-qlf" firstAttribute="top" secondItem="VZU-Jc-Nkw" secondAttribute="bottom" constant="10" id="HLW-0y-ZHM"/>
-                            <constraint firstAttribute="bottom" secondItem="RdC-W5-hBB" secondAttribute="bottom" constant="10" id="XIC-1j-TgS"/>
-                            <constraint firstItem="RdC-W5-hBB" firstAttribute="top" secondItem="bAv-AC-qlf" secondAttribute="bottom" constant="10" id="b4Q-XI-x4D"/>
-                            <constraint firstAttribute="trailing" secondItem="bAv-AC-qlf" secondAttribute="trailing" constant="20" id="bfo-En-kou"/>
-                            <constraint firstAttribute="trailing" secondItem="RdC-W5-hBB" secondAttribute="trailing" constant="20" id="hOd-kl-rOt"/>
-                            <constraint firstItem="VZU-Jc-Nkw" firstAttribute="top" secondItem="VqW-i1-pOh" secondAttribute="top" constant="10" id="sL7-8t-eG7"/>
+                            <constraint firstItem="BiJ-ES-o7c" firstAttribute="leading" secondItem="VqW-i1-pOh" secondAttribute="leading" constant="20" id="Koc-HT-mth"/>
+                            <constraint firstAttribute="bottom" secondItem="BiJ-ES-o7c" secondAttribute="bottom" constant="15" id="Teq-Yi-SAv"/>
+                            <constraint firstAttribute="trailing" secondItem="bAv-AC-qlf" secondAttribute="trailing" constant="16" id="bfo-En-kou"/>
+                            <constraint firstItem="BiJ-ES-o7c" firstAttribute="top" secondItem="bAv-AC-qlf" secondAttribute="bottom" constant="10" id="dko-hZ-tIO"/>
+                            <constraint firstItem="VZU-Jc-Nkw" firstAttribute="top" secondItem="VqW-i1-pOh" secondAttribute="top" constant="15" id="sL7-8t-eG7"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -90,7 +91,7 @@
             <size key="customSize" width="281" height="304"/>
             <connections>
                 <outlet property="reviewCardView" destination="VqW-i1-pOh" id="ocJ-Cc-zZd"/>
-                <outlet property="reviewRatingStackView" destination="RdC-W5-hBB" id="XCI-Sc-CyT"/>
+                <outlet property="reviewRatingView" destination="BiJ-ES-o7c" id="TfU-5W-ao7"/>
                 <outlet property="reviewTextView" destination="bAv-AC-qlf" id="MJc-bk-weJ"/>
                 <outlet property="reviewerImage" destination="ef3-OC-TJ8" id="R4O-TH-wTT"/>
                 <outlet property="reviewerName" destination="pDU-0C-JRw" id="noe-dh-ADr"/>

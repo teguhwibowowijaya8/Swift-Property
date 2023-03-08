@@ -41,8 +41,6 @@ class PropertyReviewTableViewCell: UITableViewCell {
         flowLayout.minimumLineSpacing = horizontalSpacing
         flowLayout.itemSize = CGSize(width: availableWidth, height: maxHeight)
         
-        print(flowLayout.itemSize.height)
-        print(collectionViewHeight.constant)
         propertyReviewCollectionView.collectionViewLayout = flowLayout
         propertyReviewCollectionView.isPagingEnabled = true
         propertyReviewCollectionView.showsHorizontalScrollIndicator = false
@@ -60,7 +58,6 @@ class PropertyReviewTableViewCell: UITableViewCell {
         var maxHeight: CGFloat = 0
         for review in reviews {
             let availableWidth = availableWidth
-            print(availableWidth)
             let frame = CGRect(x: 0, y: 0, width: availableWidth, height: 200)
             
             guard let dummyCell = UINib(nibName: PropertyReviewCollectionViewCell.identifier, bundle: nil).instantiate(withOwner: nil).first as? PropertyReviewCollectionViewCell

@@ -15,7 +15,7 @@ class PropertyReviewCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var reviewerName: UILabel!
     @IBOutlet weak var reviewerPosition: UILabel!
     @IBOutlet weak var reviewTextView: UITextView!
-    @IBOutlet weak var reviewRatingStackView: UIStackView!
+    @IBOutlet weak var reviewRatingView: UIView!
     
     var review: Review?
     var cellHeight: CGFloat = 0 {
@@ -41,9 +41,9 @@ class PropertyReviewCollectionViewCell: UICollectionViewCell {
         reviewerPosition.text = review.reviewerPosition
         reviewTextView.text = review.detail
         
+        setupRatingView()
         setupComponentAttributes()
     }
-
     
     func setupComponentAttributes() {
         reviewCardView.backgroundColor = .white
@@ -59,7 +59,24 @@ class PropertyReviewCollectionViewCell: UICollectionViewCell {
         reviewerPosition.font = TextSize.detail
         reviewerPosition.textColor = MainColor.silver
         
-        reviewerPosition.font = TextSize.detail
         reviewTextView.textColor = MainColor.silver
+        reviewTextView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    func setupRatingView() {
+        let starsStackView = StarsRatingStackView()
+        starsStackView.setupStackView(rating: review?.rating)
+        starsStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        reviewRatingView.addSubview(starsStackView)
+        
+        NSLayoutConstraint.activate([
+            starsStackView.topAnchor.constraint(equalTo: reviewRatingView.topAnchor),
+            starsStackView.leftAnchor.constraint(equalTo: reviewRatingView.leftAnchor),
+            starsStackView.bottomAnchor.constraint(equalTo: reviewRatingView.bottomAnchor),
+            starsStackView.rightAnchor.constraint(lessThanOrEqualTo: reviewRatingView.rightAnchor),
+            
+            reviewRatingView.heightAnchor.constraint(equalToConstant: 14)
+        ])
     }
 }
