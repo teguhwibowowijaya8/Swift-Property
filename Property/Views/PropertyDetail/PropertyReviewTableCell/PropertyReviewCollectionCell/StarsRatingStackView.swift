@@ -52,8 +52,8 @@ class StarsRatingStackView: UIStackView {
         self.alignment = .fill
         self.spacing = 0
         
-        let ratingWithoutDecimal = Int(floor(_rating))
         let ratingDecimal = _rating.truncatingRemainder(dividingBy: 1.0)
+        let ratingWithoutDecimal = Int(floor(_rating))
         
         for index in 1...Int(self.maxRating) {
             let imageView = UIImageView()
@@ -73,9 +73,9 @@ class StarsRatingStackView: UIStackView {
     
     private func imageOfRatingDecimal(decimal: Double) -> UIImage {
         switch decimal {
-        case 0.0...0.3:
+        case 0.0..<0.4:
             return zeroStarImage!
-        case 0.4...0.7:
+        case 0.4..<0.8:
             return halfStarImage!
         case 0.8..<1.0:
             return fullStarImage!
