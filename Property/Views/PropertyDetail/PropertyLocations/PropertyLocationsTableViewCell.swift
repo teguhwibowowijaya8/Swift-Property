@@ -29,17 +29,6 @@ class PropertyLocationsTableViewCell: UITableViewCell {
         return 0
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
     func setupCell() {
         self.locations[lastSelectedLocationIndex].changeIsSelected()
         locationImageView.image = UIImage(named: locations[lastSelectedLocationIndex].image)
@@ -116,7 +105,9 @@ extension PropertyLocationsTableViewCell: LocationCollectionCellDelegate {
             self.locations[sameIndex].changeIsSelected()
             
             locationsCollectionView.reloadItems(at: changedIndexPaths)
-            locationImageView.image = UIImage(named: location.image)
+            UIView.transition(with: self.locationImageView, duration: 0.5, options: .transitionCrossDissolve, animations: {
+                self.locationImageView.image = UIImage(named: location.image)
+            }, completion: nil)
         }
     }
 }
