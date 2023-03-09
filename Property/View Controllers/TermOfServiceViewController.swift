@@ -68,4 +68,8 @@ extension TermOfServiceViewController: UITableViewDelegate, UITableViewDataSourc
         
         return termsPointCell
     }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
 }

@@ -53,6 +53,9 @@ class CustomBackButtonView: UIButton {
     
     func configure() {
         self.addTarget(self, action: #selector(onButtonSelectedObjc), for: .touchUpInside)
+        self.addTarget(self, action: #selector(onButtonTocuhDownObjc), for: .touchDown)
+        self.addTarget(self, action: #selector(onButtonTocuhCancelObjc), for: .touchCancel)
+        self.addTarget(self, action: #selector(onButtonTocuhCancelObjc), for: .touchDragExit)
         
         self.addSubview(backImageView)
         self.addSubview(backTitle)
@@ -69,7 +72,20 @@ class CustomBackButtonView: UIButton {
         ])
     }
     
+    @objc func onButtonTocuhDownObjc() {
+        UIButton.animate(withDuration: 0.3) {
+            self.layer.opacity = 0.5
+        }
+    }
+    
+    @objc func onButtonTocuhCancelObjc() {
+        UIButton.animate(withDuration: 0.3) {
+            self.layer.opacity = 1
+        }
+    }
+    
     @objc func onButtonSelectedObjc() {
+        onButtonTocuhCancelObjc()
         onButtonSelected?()
     }
 }

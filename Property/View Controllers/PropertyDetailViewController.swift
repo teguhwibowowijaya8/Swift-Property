@@ -90,6 +90,9 @@ extension PropertyDetailViewController {
         rightNavbarButton.backgroundColor = MainColor.purple.withAlphaComponent(0.3)
         rightNavbarButton.addSubview(rightButtonImageView)
         rightNavbarButton.addTarget(self, action: #selector(onRightBarButtonSelected), for: .touchUpInside)
+        rightNavbarButton.addTarget(self, action: #selector(onRightBarButtonSelectedHighlight), for: .touchDown)
+        rightNavbarButton.addTarget(self, action: #selector(onRightBarButtonUnselected), for: .touchCancel)
+        rightNavbarButton.addTarget(self, action: #selector(onRightBarButtonUnselected), for: .touchDragExit)
         
         NSLayoutConstraint.activate([
             rightButtonImageView.topAnchor.constraint(greaterThanOrEqualTo: rightNavbarButton.topAnchor, constant: 8),
@@ -104,10 +107,23 @@ extension PropertyDetailViewController {
         navigationItem.setRightBarButton(rightBarButton, animated: true)
     }
     
-    @objc func onRightBarButtonSelected(_ sender: UIButton) {
+    @objc func onRightBarButtonSelected(_ sender: DefaultButton) {
+        onRightBarButtonUnselected(sender)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let termOfServiceVC = storyboard.instantiateViewController(withIdentifier: TermOfServiceViewController.identifier) as? TermOfServiceViewController {
             navigationController?.pushViewController(termOfServiceVC, animated: true)
+        }
+    }
+    
+    @objc func onRightBarButtonSelectedHighlight(_ sender: DefaultButton) {
+        DefaultButton.animate(withDuration: 0.3) {
+            sender.layer.opacity = 0.7
+        }
+    }
+    
+    @objc func onRightBarButtonUnselected(_ sender: DefaultButton) {
+        DefaultButton.animate(withDuration: 0.3) {
+            sender.layer.opacity = 1
         }
     }
 }

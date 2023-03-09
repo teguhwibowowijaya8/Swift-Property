@@ -52,6 +52,12 @@ class PropertyTableViewCell: UITableViewCell {
         
         propertyCardButton.addTarget(self, action: #selector(onCardSelected), for: .touchUpInside)
         
+        if delegate != nil {
+            propertyCardButton.addTarget(self, action: #selector(onCardTocuhDownObjc), for: .touchDown)
+            propertyCardButton.addTarget(self, action: #selector(onCardTocuhCancelObjc), for: .touchCancel)
+            propertyCardButton.addTarget(self, action: #selector(onCardTocuhCancelObjc), for: .touchDragExit)
+        }
+        
         
         setupComponentAttributes()
     }
@@ -71,7 +77,22 @@ class PropertyTableViewCell: UITableViewCell {
     @objc func onCardSelected(_ sender: UIButton) {
         guard let property = property else {return}
         
-        delegate?.onPropertySelected(property: property)
+        if let delegate = delegate {
+            onCardTocuhCancelObjc()
+            delegate.onPropertySelected(property: property)
+        }
+    }
+    
+    @objc func onCardTocuhDownObjc() {
+        CardView.animate(withDuration: 0.3) {
+            self.propertyCardView.layer.opacity = 0.7
+        }
+    }
+    
+    @objc func onCardTocuhCancelObjc() {
+        CardView.animate(withDuration: 0.3) {
+            self.propertyCardView.layer.opacity = 1
+        }
     }
     
     private func setupComponentAttributes() {
