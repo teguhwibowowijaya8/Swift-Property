@@ -20,8 +20,14 @@ class PropertyLocationsTableViewCell: UITableViewCell {
         }
     }
     
-    var lastSelectedLocationIndex: Int = 0
     var locations: [Location] = [Location]()
+    var lastSelectedLocationIndex: Int {
+        for (index, location) in locations.enumerated() {
+            if location.isSelected { return index }
+        }
+        locations[0].changeIsSelected()
+        return 0
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -108,9 +114,7 @@ extension PropertyLocationsTableViewCell: LocationCollectionCellDelegate {
 
             self.locations[lastSelectedLocationIndex].changeIsSelected()
             self.locations[sameIndex].changeIsSelected()
-
-            lastSelectedLocationIndex = sameIndex
-
+            
             locationsCollectionView.reloadItems(at: changedIndexPaths)
             locationImageView.image = UIImage(named: location.image)
         }

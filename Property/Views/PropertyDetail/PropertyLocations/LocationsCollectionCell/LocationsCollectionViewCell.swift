@@ -16,6 +16,7 @@ class LocationsCollectionViewCell: UICollectionViewCell {
             guard let locationPlace = locationPlace else {return}
             locationPlaceButton.setTitle(locationPlace.place, for: .normal)
             if locationPlace.isSelected { setupIsSelectedButton() }
+            else { setupNotSelectedButton() }
         }
     }
     
@@ -50,6 +51,12 @@ class LocationsCollectionViewCell: UICollectionViewCell {
         locationPlaceButton.tintColor = .white
         locationPlaceButton.titleLabel?.font = TextSize.title2
         locationPlaceButton.backgroundColor = MainColor.orange
+    }
+    
+    func setupNotSelectedButton() {
+        locationPlaceButton.tintColor = MainColor.silver
+        locationPlaceButton.titleLabel?.font = TextSize.subTitle2
+        locationPlaceButton.backgroundColor = .clear
     }
     
     @objc func onButtonPressed() {
