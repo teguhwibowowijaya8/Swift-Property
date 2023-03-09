@@ -56,7 +56,7 @@ class PropertyTableViewCell: UITableViewCell {
         setupComponentAttributes()
     }
     
-    func setupConstraintHeader(_ headerView: UIView) {
+    private func setupConstraintHeader(_ headerView: UIView) {
         headerView.translatesAutoresizingMaskIntoConstraints = false
         propertyHeaderView.addSubview(headerView)
         

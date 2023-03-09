@@ -45,7 +45,7 @@ class PropertyReviewCollectionViewCell: UICollectionViewCell {
         setupComponentAttributes()
     }
     
-    func setupComponentAttributes() {
+    private func setupComponentAttributes() {
         reviewCardView.backgroundColor = .white
         
         reviewerImage.layer.cornerRadius = 12
@@ -63,7 +63,7 @@ class PropertyReviewCollectionViewCell: UICollectionViewCell {
         reviewTextView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
-    func setupRatingView() {
+    private func setupRatingView() {
         let starsStackView = StarsRatingStackView()
         starsStackView.setupStackView(rating: review?.rating)
         starsStackView.translatesAutoresizingMaskIntoConstraints = false

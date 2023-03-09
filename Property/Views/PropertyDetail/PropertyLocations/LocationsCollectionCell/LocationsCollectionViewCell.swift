@@ -47,13 +47,13 @@ class LocationsCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    func setupIsSelectedButton() {
+    private func setupIsSelectedButton() {
         locationPlaceButton.tintColor = .white
         locationPlaceButton.titleLabel?.font = TextSize.title2
         locationPlaceButton.backgroundColor = MainColor.orange
     }
     
-    func setupNotSelectedButton() {
+    private func setupNotSelectedButton() {
         locationPlaceButton.tintColor = MainColor.silver
         locationPlaceButton.titleLabel?.font = TextSize.subTitle2
         locationPlaceButton.backgroundColor = .clear

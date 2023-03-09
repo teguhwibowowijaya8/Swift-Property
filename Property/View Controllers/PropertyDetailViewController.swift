@@ -38,7 +38,7 @@ class PropertyDetailViewController: BaseViewController {
         navigationController?.isNavigationBarHidden = false
     }
     
-    func setupPropertySaveButton() {
+    private func setupPropertySaveButton() {
         propertySaveButton.setTitle("Save", for: .normal)
         propertySaveButton.configureTitleLabel(isBold: true)
     }
@@ -46,7 +46,7 @@ class PropertyDetailViewController: BaseViewController {
 
 // MARK: Setup header and table view
 extension PropertyDetailViewController {
-    func setupLeftBarButtonItem() {
+    private func setupLeftBarButtonItem() {
         let leftBarButtonView = CustomBackButtonView(type: .system)
         leftBarButtonView.title = "Property Details"
         leftBarButtonView.onButtonSelected = onLeftBarButtonSelected
@@ -55,11 +55,11 @@ extension PropertyDetailViewController {
         navigationItem.setLeftBarButton(leftBarButtonButton, animated: true)
     }
     
-    func onLeftBarButtonSelected() {
+    private func onLeftBarButtonSelected() {
         self.navigationController?.popViewController(animated: true)
     }
     
-    func setupTableView() {
+    private func setupTableView() {
         propertyDetailTableView.delegate = self
         propertyDetailTableView.dataSource = self
         propertyDetailTableView.separatorStyle = .none
@@ -80,7 +80,7 @@ extension PropertyDetailViewController {
         propertyDetailTableView.register(propertyFacilitiesCellNib, forCellReuseIdentifier: PropertyFacilitiesTableViewCell.identifier)
     }
     
-    func setupRightBarButton() {
+    private func setupRightBarButton() {
         let rightButtonImage = UIImage(systemName: "bookmark.fill")
         let rightButtonImageView = UIImageView(image: rightButtonImage)
         rightButtonImageView.tintColor = MainColor.purple
@@ -215,7 +215,7 @@ extension PropertyDetailViewController: UITableViewDelegate, UITableViewDataSour
 }
 
 extension PropertyDetailViewController {
-    func propertyHeader() -> UIView {
+    private func propertyHeader() -> UIView {
         let headerTitleLabel = SectionHeader()
         headerTitleLabel.configure(title: "Property Details")
         

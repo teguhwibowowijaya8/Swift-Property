@@ -59,7 +59,7 @@ class PropertyReviewTableViewCell: UITableViewCell {
         propertyReviewCollectionView.register(propertyReviewCellNib, forCellWithReuseIdentifier: PropertyReviewCollectionViewCell.identifier)
     }
     
-    func getMaxHeight() -> CGFloat {
+    private func getMaxHeight() -> CGFloat {
         collectionCellsHeights = [CGFloat]()
         guard let reviews = reviews else {return .zero}
         var maxHeight: CGFloat = 0

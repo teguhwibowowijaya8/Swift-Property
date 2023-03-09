@@ -41,7 +41,7 @@ class PropertyFacilitiesTableViewCell: UITableViewCell {
         setupCollectionView(screenWidth: screenWidth)
     }
     
-    func setupCollectionView(screenWidth: CGFloat) {
+    private func setupCollectionView(screenWidth: CGFloat) {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         flowLayout.sectionInset = UIEdgeInsets(top: verticalSpacing, left: horizontalSpacing, bottom: verticalSpacing, right: horizontalSpacing)
