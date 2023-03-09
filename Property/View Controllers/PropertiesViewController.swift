@@ -50,20 +50,29 @@ class PropertiesViewController: BaseViewController {
     
     private func searchLeftComponent() -> UIView {
         let containerLeftImages = UIView()
-        containerLeftImages.translatesAutoresizingMaskIntoConstraints = false
         
         let searchImage = UIImage(systemName: "magnifyingglass")
         let searchImageView = UIImageView(image: searchImage)
         searchImageView.translatesAutoresizingMaskIntoConstraints = false
         searchImageView.tintColor = MainColor.purple
         
+        let separatorView = UIView()
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+        separatorView.backgroundColor = MainColor.purple
+        
         containerLeftImages.addSubview(searchImageView)
+        containerLeftImages.addSubview(separatorView)
         NSLayoutConstraint.activate([
             searchImageView.topAnchor.constraint(equalTo: containerLeftImages.topAnchor, constant: 8),
             searchImageView.leftAnchor.constraint(equalTo: containerLeftImages.leftAnchor, constant: 12),
-            searchImageView.rightAnchor.constraint(equalTo: containerLeftImages.rightAnchor),
-            searchImageView.bottomAnchor.constraint(equalTo: containerLeftImages.bottomAnchor, constant: -8)
+            searchImageView.rightAnchor.constraint(equalTo: separatorView.leftAnchor, constant: -15),
+            searchImageView.bottomAnchor.constraint(equalTo: containerLeftImages.bottomAnchor, constant: -8),
             
+            
+            separatorView.topAnchor.constraint(equalTo: containerLeftImages.topAnchor, constant: 5),
+            separatorView.rightAnchor.constraint(equalTo: containerLeftImages.rightAnchor, constant: -10),
+            separatorView.bottomAnchor.constraint(equalTo: containerLeftImages.bottomAnchor, constant: -5),
+            separatorView.widthAnchor.constraint(equalToConstant: 1)
         ])
         
         return containerLeftImages
