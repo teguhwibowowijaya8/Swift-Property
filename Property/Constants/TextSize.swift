@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct TextSize {
+enum TextSize {
     static let title = UIFont.boldSystemFont(ofSize: 18)
     static let title2 = UIFont.boldSystemFont(ofSize: 16)
     static let subTitle2 = UIFont.systemFont(ofSize: 16)

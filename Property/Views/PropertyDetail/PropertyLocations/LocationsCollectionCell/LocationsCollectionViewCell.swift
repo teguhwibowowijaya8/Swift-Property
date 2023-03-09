@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol LocationCollectionCellDelegate {
-    func onLocationSelected(_ location: Location)
-}
-
 class LocationsCollectionViewCell: UICollectionViewCell {
     static let identifier = "LocationsCollectionViewCell"
     

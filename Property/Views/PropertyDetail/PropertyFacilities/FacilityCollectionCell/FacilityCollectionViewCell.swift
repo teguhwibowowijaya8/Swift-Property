@@ -14,7 +14,6 @@ class FacilityCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var facilityImageView: UIImageView! {
         didSet {
             facilityImageView.contentMode = .scaleAspectFill
-            facilityImageView.layer.cornerRadius = 0
         }
     }
     @IBOutlet weak var facilityNameLabel: UILabel! {

@@ -7,12 +7,6 @@
 
 import UIKit
 
-
-enum ImageAttachmentType {
-    case named
-    case systemName
-}
-
 extension UILabel {
     func textWithAttachment(
         text: String,

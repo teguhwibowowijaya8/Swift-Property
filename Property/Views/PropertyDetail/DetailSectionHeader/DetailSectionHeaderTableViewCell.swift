@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol DetailSectionHeaderDelegate {
-    func onToggleButtonSelected(of headerType: PropertyDetailViewSection)
-}
-
 class DetailSectionHeaderTableViewCell: UITableViewCell {
     static let identifier = "DetailSectionHeaderTableViewCell"
     

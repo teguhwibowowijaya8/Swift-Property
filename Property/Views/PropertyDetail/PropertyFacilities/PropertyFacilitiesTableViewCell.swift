@@ -10,11 +10,11 @@ import UIKit
 class PropertyFacilitiesTableViewCell: UITableViewCell {
     static let identifier = "PropertyFacilitiesTableViewCell"
     
-    private let horizontalSpacing: CGFloat = 15
+    private let horizontalSpacing: CGFloat = 20
     private let verticalSpacing: CGFloat = 10
     private let baseCollectionViewHeight: CGFloat = 200
     
-    var facilities: Facilities?
+    var facility: Facility?
     
     @IBOutlet weak var facilityDescriptionTextView: UITextView! {
         didSet {
@@ -34,9 +34,10 @@ class PropertyFacilitiesTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func setupCell(screenWidth: CGFloat, facilityDescription: String) {
+    func setupCell(screenWidth: CGFloat) {
+        guard let facility = facility else {return}
         self.backgroundColor = .clear
-        facilityDescriptionTextView.text = facilityDescription
+        facilityDescriptionTextView.text = facility.description
         setupCollectionView(screenWidth: screenWidth)
     }
     
@@ -45,13 +46,16 @@ class PropertyFacilitiesTableViewCell: UITableViewCell {
         flowLayout.scrollDirection = .horizontal
         flowLayout.sectionInset = UIEdgeInsets(top: verticalSpacing, left: horizontalSpacing, bottom: verticalSpacing, right: horizontalSpacing)
         flowLayout.minimumLineSpacing = horizontalSpacing
-        let availableWidth = screenWidth - horizontalSpacing * 2
-        flowLayout.itemSize = CGSize(width: availableWidth / 2, height: baseCollectionViewHeight)
+        
+        let columnPerRow: CGFloat = 2
+        let availableWidth = screenWidth - horizontalSpacing * (columnPerRow + 1)
+        flowLayout.itemSize = CGSize(width: availableWidth / columnPerRow, height: baseCollectionViewHeight)
         
         facilitiesCollectionView.collectionViewLayout = flowLayout
         facilitiesCollectionView.delegate = self
         facilitiesCollectionView.dataSource = self
         facilitiesCollectionView.backgroundColor = .clear
+        facilitiesCollectionView.showsHorizontalScrollIndicator = false
         
         facilitiesCollectionView.heightAnchor.constraint(equalToConstant: baseCollectionViewHeight + verticalSpacing * 2).isActive = true
         
@@ -64,14 +68,14 @@ class PropertyFacilitiesTableViewCell: UITableViewCell {
 
 extension PropertyFacilitiesTableViewCell: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return facility?.facilities.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let facilityCell = collectionView.dequeueReusableCell(withReuseIdentifier: FacilityCollectionViewCell.identifier, for: indexPath) as? FacilityCollectionViewCell
+        guard let facility = facility?.facilities[indexPath.row], let facilityCell = collectionView.dequeueReusableCell(withReuseIdentifier: FacilityCollectionViewCell.identifier, for: indexPath) as? FacilityCollectionViewCell
         else {return UICollectionViewCell()}
         
-        facilityCell.setupCell(image: "Beautiful Apartment", name: "Beautiful Beautiful Beautiful Apartment")
+        facilityCell.setupCell(image: facility.image, name: facility.name)
         return facilityCell
     }
 }

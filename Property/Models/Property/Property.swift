@@ -13,12 +13,10 @@ struct Property {
     let price: Int
     let address: String
     let size: Int
-    let facilities: Facilities
+    let amenities: Amenity
     let review: [Review]
-    let interiorDetail: String
-    let interiorDetailImages: [FacilityDetail]
-    let constructionDetail: String
-    let constructionDetailImages: [FacilityDetail]
+    let interiors: Facility
+    let constructions: Facility
     var locations: [Location]
     
     var priceString: String {
@@ -29,8 +27,8 @@ struct Property {
         return String(format: "%dsqft", locale: .current, size)
     }
     
-    var facilitiesCount: Int {
-        return facilities.kitchens.count + facilities.beds.count + facilities.baths.count
+    var amenitiesCount: Int {
+        return amenities.beds.count + amenities.kitchens.count + amenities.baths.count
     }
     
     mutating func findLocation(_ location: Location) -> Int? {

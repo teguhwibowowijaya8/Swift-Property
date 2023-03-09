@@ -9,13 +9,14 @@ import Foundation
 
 struct Properties {
     static let data: [Property] = [
-        Property(image: "Beautiful Apartment", name: "Beautiful Apartment", price: 200000, address: "2BW Street, NY, New York, United States", size: 2000, facilities: facilitiesOne, review: reviewerOne, interiorDetail: detailString, interiorDetailImages: interiorDetails, constructionDetail: detailString, constructionDetailImages: constructionDetails, locations: locationsOne),
-        Property(image: "President Apartment", name: "President Apartment", price: 500000, address: "2BW Street, NY, New York, United States", size: 5000, facilities: facilitiesTwo, review: reviewerTwo, interiorDetail: detailString, interiorDetailImages: constructionDetails, constructionDetail: detailString, constructionDetailImages: interiorDetails, locations: locationsTwo),
-        Property(image: "Deluxe Apartment", name: "Deluxe Apartment", price: 700000, address: "2BW Street, NY, New York, United States", size: 7000, facilities: facilitiesOne, review: reviewerOne, interiorDetail: detailString, interiorDetailImages: interiorDetails, constructionDetail: detailString, constructionDetailImages: constructionDetails, locations: locationsOne),
-        Property(image: "Sky Apartment", name: "Sky Apartment", price: 100000, address: "2BW Street, NY, New York, United States", size: 1000, facilities: facilitiesOne, review: reviewerTwo, interiorDetail: detailString, interiorDetailImages: constructionDetails, constructionDetail: detailString, constructionDetailImages: interiorDetails, locations: locationsTwo),
+        Property(image: "Beautiful Apartment", name: "Beautiful Apartment", price: 200000, address: "2BW Street, NY, New York, United States", size: 2000, amenities: amenitiesOne, review: reviewerOne, interiors: interior, constructions: construction, locations: locationsOne),
+        Property(image: "President Apartment", name: "President Apartment", price: 500000, address: "2BW Street, NY, New York, United States", size: 5000, amenities: amenitiesTwo, review: reviewerTwo, interiors: interior, constructions: construction, locations: locationsTwo),
+        Property(image: "Deluxe Apartment", name: "Deluxe Apartment", price: 700000, address: "2BW Street, NY, New York, United States", size: 7000, amenities: amenitiesOne, review: reviewerOne, interiors: interior, constructions: construction, locations: locationsOne),
+        Property(image: "Sky Apartment", name: "Sky Apartment", price: 100000, address: "2BW Street, NY, New York, United States", size: 1000, amenities: amenitiesTwo, review: reviewerTwo, interiors: interior, constructions: construction, locations: locationsTwo),
     ]
     
-    private static let facilitiesOne: Facilities = Facilities(
+    private static let amenitiesOne: Amenity = Amenity(
+        description: detailStringTwo,
         beds: [
             FacilityDetail(name: "Luxury Bed", image: Images.beautifulApartment),
             FacilityDetail(name: "Famous Bed", image: Images.presidentApartment)
@@ -26,7 +27,8 @@ struct Properties {
             FacilityDetail(name: "Famous Kitchen", image: Images.beautifulApartment)
         ])
     
-    private static let facilitiesTwo: Facilities = Facilities(
+    private static let amenitiesTwo: Amenity = Amenity(
+        description: detailString,
         beds: [
             FacilityDetail(name: "Truly Famous Bed", image: Images.presidentApartment),
             FacilityDetail(name: "Truly Luxury Bed", image: Images.skyApartment),
@@ -42,8 +44,8 @@ struct Properties {
         ])
     
     private static let reviewerOne: [Review] = [
-        Review(image: Images.james, reviewerName: "James Butler", reviewerPosition: "Owner", detail: detailStringTwo, _rating: 4.5),
-        Review(image: nil, reviewerName: "Miles Lala", reviewerPosition: "Broker", detail: detailString, _rating: 4.2),
+        Review(image: Images.james, reviewerName: "James Butler", reviewerPosition: "Owner", detail: detailString, _rating: 4.5),
+        Review(image: nil, reviewerName: "Miles Lala", reviewerPosition: "Broker", detail: detailStringTwo, _rating: 4.2),
     ]
     
     private static let reviewerTwo: [Review] = [
@@ -51,14 +53,18 @@ struct Properties {
         Review(image: Images.james, reviewerName: "James Butler", reviewerPosition: "Broker", detail: detailStringTwo, _rating: 3.0),
     ]
     
+    private static let interior: Facility = Facility(description: detailString, facilities: interiorDetails)
+    
+    private static let construction: Facility = Facility(description: detailString, facilities: constructionDetails)
+    
     private static let interiorDetails: [FacilityDetail] = [
-        FacilityDetail(name: "Walalala", image: Images.presidentApartment),
-        FacilityDetail(name: "Trililil", image: Images.deluxeApartment)
+        FacilityDetail(name: "Walalala", image: Images.mapsOne),
+        FacilityDetail(name: "Trililil", image: Images.mapsTwo)
     ]
     
     private static let constructionDetails: [FacilityDetail] = [
-        FacilityDetail(name: "Trililil", image: Images.skyApartment),
-        FacilityDetail(name: "Walalala", image: Images.beautifulApartment)
+        FacilityDetail(name: "Trililil", image: Images.mapsThree),
+        FacilityDetail(name: "Walalala", image: Images.mapsOne)
     ]
     
     private static let detailStringTwo = """

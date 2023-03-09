@@ -133,18 +133,7 @@ extension PropertiesViewController: PropertyTableViewDelegate {
         if let propertyDetailVC = storyboard.instantiateViewController(withIdentifier: PropertyDetailViewController.identifier) as? PropertyDetailViewController {
             
             propertyDetailVC.property = property
-            navigationController?.delegate = self
             navigationController?.pushViewController(propertyDetailVC, animated: true)
         }
-    }
-}
-
-extension PropertiesViewController: UINavigationControllerDelegate {
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        UIView.preventDimmingView()
-    }
-    
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        UIView.allowDimmingView()
     }
 }

@@ -18,5 +18,4 @@ struct Review {
         else if _rating < 0.0 { return 0.0 }
         else { return _rating }
     }
-    
 }

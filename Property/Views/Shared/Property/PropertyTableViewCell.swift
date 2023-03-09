@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol PropertyTableViewDelegate {
-    func onPropertySelected(property: Property)
-}
-
 class PropertyTableViewCell: UITableViewCell {
     static let identifier = "PropertyTableViewCell"
 
@@ -49,10 +45,10 @@ class PropertyTableViewCell: UITableViewCell {
         
         propertyAddressLabel.textWithAttachment(text: property.address, imageName: "location.fill", imageType: .systemName)
         
-        let facilities = property.facilities
-        propertyBedsLabel.textWithAttachment(text: "\(facilities.beds.count) Bed", imageName: Images.bed)
-        propertyBathsLabel.textWithAttachment(text: "\(facilities.baths.count) Bath", imageName: Images.bed)
-        propertyKitchensLabel.textWithAttachment(text: "\(facilities.kitchens.count) Kitchen", imageName: Images.bed)
+        let amenities = property.amenities
+        propertyBedsLabel.textWithAttachment(text: "\(amenities.beds.count) Bed", imageName: Images.bed)
+        propertyBathsLabel.textWithAttachment(text: "\(amenities.baths.count) Bath", imageName: Images.bed)
+        propertyKitchensLabel.textWithAttachment(text: "\(amenities.kitchens.count) Kitchen", imageName: Images.bed)
         
         propertyCardButton.addTarget(self, action: #selector(onCardSelected), for: .touchUpInside)
         

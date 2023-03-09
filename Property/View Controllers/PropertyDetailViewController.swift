@@ -7,34 +7,6 @@
 
 import UIKit
 
-enum PropertyDetailViewSection: Int {
-    case property
-    case reviews
-    case amenities
-    case interiorDetails
-    case constructionDetails
-    case locationMapAndDetails
-    
-    init(_ section: Int) {
-        switch section {
-        case 0:
-            self = .property
-        case 1:
-            self = .reviews
-        case 2:
-            self = .amenities
-        case 3:
-            self = .interiorDetails
-        case 4:
-            self = .constructionDetails
-        case 5:
-            self = .locationMapAndDetails
-        default:
-            self = .property
-        }
-    }
-}
-
 class PropertyDetailViewController: BaseViewController {
     
     static let identifier = "PropertyDetailViewController"
@@ -186,56 +158,6 @@ extension PropertyDetailViewController: UITableViewDelegate, UITableViewDataSour
             return propertyReviewCell
             
             
-        case .amenities:
-            if indexPath.row == 0 {
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailSectionHeaderTableViewCell.identifier, for: indexPath) as? DetailSectionHeaderTableViewCell
-                else { return UITableViewCell() }
-                
-                cell.headerType = .amenities
-                cell.delegate = self
-                cell.setupHeaderView(isOpen: toggleHeader[.amenities, default: false])
-                
-                return cell
-            }
-            
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyFacilitiesTableViewCell.identifier, for: indexPath) as? PropertyFacilitiesTableViewCell
-            else { return UITableViewCell() }
-            
-            let description = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."
-            cell.setupCell(screenWidth: view.safeAreaLayoutGuide.layoutFrame.width, facilityDescription: description)
-            return cell
-            
-            
-        case .interiorDetails:
-            if indexPath.row == 0 {
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailSectionHeaderTableViewCell.identifier, for: indexPath) as? DetailSectionHeaderTableViewCell
-                else { return UITableViewCell() }
-                
-                cell.headerType = .interiorDetails
-                cell.delegate = self
-                cell.setupHeaderView(isOpen: toggleHeader[.interiorDetails, default: false])
-                
-                return cell
-            }
-            
-            return UITableViewCell()
-            
-            
-        case .constructionDetails:
-            if indexPath.row == 0 {
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailSectionHeaderTableViewCell.identifier, for: indexPath) as? DetailSectionHeaderTableViewCell
-                else { return UITableViewCell() }
-                
-                cell.headerType = .constructionDetails
-                cell.delegate = self
-                cell.setupHeaderView(isOpen: toggleHeader[.constructionDetails, default: false])
-                
-                return cell
-            }
-            
-            return UITableViewCell()
-            
-            
         case .locationMapAndDetails:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyLocationsTableViewCell.identifier, for: indexPath) as? PropertyLocationsTableViewCell
             else { return UITableViewCell() }
@@ -244,6 +166,45 @@ extension PropertyDetailViewController: UITableViewDelegate, UITableViewDataSour
             cell.locations = property.locations
             cell.setupCell()
             
+            return cell
+            
+            
+        default:
+            if indexPath.row == 0 {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailSectionHeaderTableViewCell.identifier, for: indexPath) as? DetailSectionHeaderTableViewCell
+                else { return UITableViewCell() }
+                
+                let headerType = PropertyDetailViewSection(indexPath.section)
+                cell.headerType = headerType
+                cell.delegate = self
+                cell.setupHeaderView(isOpen: toggleHeader[headerType, default: false])
+                
+                return cell
+            }
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PropertyFacilitiesTableViewCell.identifier, for: indexPath) as? PropertyFacilitiesTableViewCell
+            else { return UITableViewCell() }
+            
+            let screenSafeAreaWidth = view.safeAreaLayoutGuide.layoutFrame.width
+            let facility: Facility
+            switch PropertyDetailViewSection(indexPath.section) {
+            case .amenities:
+                var amenitiesFacility: [FacilityDetail] = [FacilityDetail]()
+                amenitiesFacility.append(contentsOf: property.amenities.baths)
+                amenitiesFacility.append(contentsOf: property.amenities.beds)
+                amenitiesFacility.append(contentsOf: property.amenities.kitchens)
+                
+                facility = Facility(description: property.amenities.description, facilities: amenitiesFacility)
+            case .interiorDetails:
+                facility = property.interiors
+            case .constructionDetails:
+                facility = property.constructions
+            default:
+                return UITableViewCell()
+            }
+
+            cell.facility = facility
+            cell.setupCell(screenWidth: screenSafeAreaWidth)
             return cell
         }
     }
@@ -265,7 +226,7 @@ extension PropertyDetailViewController {
 extension PropertyDetailViewController: DetailSectionHeaderDelegate {
     func onToggleButtonSelected(of headerType: PropertyDetailViewSection) {
         guard let toggle = toggleHeader[headerType] else {return}
-//        let toggleIndexPaths = getIndexPathsOfSection(of: headerType)
+        //        let toggleIndexPaths = getIndexPathsOfSection(of: headerType)
         toggleHeader[headerType] = !toggle
         let headerIndex = [IndexPath(row: 0, section: headerType.rawValue)]
         let bodyIndex = [IndexPath(row: 1, section: headerType.rawValue)]
@@ -275,29 +236,29 @@ extension PropertyDetailViewController: DetailSectionHeaderDelegate {
             propertyDetailTableView.insertRows(at: bodyIndex, with: .fade)
         }
         propertyDetailTableView.reloadRows(at: headerIndex, with: .automatic)
-
+        
         
     }
     
-//    private func getIndexPathsOfSection(of headerType: PropertyDetailViewSection) -> [IndexPath] {
-//        var indexPaths = [IndexPath]()
-//        var count = 0
-//
-//        switch headerType {
-//        case .amenities:
-//            count = property?.facilitiesCount ?? 0
-//        case .interiorDetails:
-//            count = property?.interiorDetailImages.count ?? 0
-//        case .constructionDetails:
-//            count = property?.constructionDetailImages.count ?? 0
-//        default:
-//            count = 0
-//        }
-//
-//        for index in 1...count {
-//            indexPaths.append(IndexPath(row: index, section: headerType.rawValue))
-//        }
-//
-//        return indexPaths
-//    }
+    //    private func getIndexPathsOfSection(of headerType: PropertyDetailViewSection) -> [IndexPath] {
+    //        var indexPaths = [IndexPath]()
+    //        var count = 0
+    //
+    //        switch headerType {
+    //        case .amenities:
+    //            count = property?.facilitiesCount ?? 0
+    //        case .interiorDetails:
+    //            count = property?.interiorDetailImages.count ?? 0
+    //        case .constructionDetails:
+    //            count = property?.constructionDetailImages.count ?? 0
+    //        default:
+    //            count = 0
+    //        }
+    //
+    //        for index in 1...count {
+    //            indexPaths.append(IndexPath(row: index, section: headerType.rawValue))
+    //        }
+    //
+    //        return indexPaths
+    //    }
 }
