@@ -9,6 +9,12 @@ import UIKit
 
 
 class CardView: UIView {
+    var cornerRadius: CGFloat = 10 {
+        didSet {
+            configure()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -19,7 +25,7 @@ class CardView: UIView {
         configure()
     }
     
-    func configure(cornerRadius: CGFloat = 20) {
+    func configure() {
         self.layer.cornerRadius = cornerRadius
         self.clipsToBounds = true
     }

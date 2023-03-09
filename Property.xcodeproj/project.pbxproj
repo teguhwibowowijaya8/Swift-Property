@@ -55,6 +55,7 @@
 		7A80665B29B97E5A0054DD03 /* PropertyTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80665A29B97E5A0054DD03 /* PropertyTableViewDelegate.swift */; };
 		7A80665D29B97E960054DD03 /* DetailSectionHeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80665C29B97E960054DD03 /* DetailSectionHeaderDelegate.swift */; };
 		7A80665F29B97F0B0054DD03 /* LocationCollectionCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80665E29B97F0B0054DD03 /* LocationCollectionCellDelegate.swift */; };
+		7A80666129B987C70054DD03 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80666029B987C70054DD03 /* ShadowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +109,7 @@
 		7A80665A29B97E5A0054DD03 /* PropertyTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTableViewDelegate.swift; sourceTree = "<group>"; };
 		7A80665C29B97E960054DD03 /* DetailSectionHeaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSectionHeaderDelegate.swift; sourceTree = "<group>"; };
 		7A80665E29B97F0B0054DD03 /* LocationCollectionCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCollectionCellDelegate.swift; sourceTree = "<group>"; };
+		7A80666029B987C70054DD03 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 			children = (
 				7A8065F829B59E520054DD03 /* Property */,
 				7A8065F929B5A3490054DD03 /* CardView.swift */,
+				7A80666029B987C70054DD03 /* ShadowView.swift */,
 				7A80661B29B6D02D0054DD03 /* BaseViewController.swift */,
 				7A80662329B6F6DF0054DD03 /* SectionHeader.swift */,
 				7A80662729B70E300054DD03 /* DefaultButton.swift */,
@@ -483,6 +486,7 @@
 				7A80663F29B839380054DD03 /* TermPointTableViewCell.swift in Sources */,
 				7A80661429B5CFDC0054DD03 /* UILabel+TextWithAttachment.swift in Sources */,
 				7A80665F29B97F0B0054DD03 /* LocationCollectionCellDelegate.swift in Sources */,
+				7A80666129B987C70054DD03 /* ShadowView.swift in Sources */,
 				7A80665829B97E0C0054DD03 /* ImageAttachmentType.swift in Sources */,
 				7A80662829B70E300054DD03 /* DefaultButton.swift in Sources */,
 			);

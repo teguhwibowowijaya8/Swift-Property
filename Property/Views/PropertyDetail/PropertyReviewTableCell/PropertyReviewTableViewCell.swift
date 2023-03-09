@@ -20,9 +20,16 @@ class PropertyReviewTableViewCell: UITableViewCell {
     
     private let horizontalSpacing: CGFloat = 25
     private let verticalSpacing: CGFloat = 20
+    private let cellHorizontalPadding: CGFloat = 13
+    
+    private var horizontal: CGFloat {
+        return horizontalSpacing - cellHorizontalPadding
+    }
+    
     private var availableWidth: CGFloat {
         guard let screenWidth = screenWidth else {return 0}
-        return screenWidth - horizontalSpacing * 2
+        
+        return screenWidth - horizontal * 2
     }
     
     override func awakeFromNib() {
@@ -37,8 +44,8 @@ class PropertyReviewTableViewCell: UITableViewCell {
         self.contentView.layoutIfNeeded()
         
         flowLayout.scrollDirection = .horizontal
-        flowLayout.sectionInset = UIEdgeInsets(top: verticalSpacing, left: horizontalSpacing, bottom: verticalSpacing, right: horizontalSpacing)
-        flowLayout.minimumLineSpacing = horizontalSpacing
+        flowLayout.sectionInset = UIEdgeInsets(top: verticalSpacing, left: horizontal, bottom: verticalSpacing, right: horizontal)
+        flowLayout.minimumLineSpacing = horizontal
         flowLayout.itemSize = CGSize(width: availableWidth, height: maxHeight)
         
         propertyReviewCollectionView.collectionViewLayout = flowLayout
