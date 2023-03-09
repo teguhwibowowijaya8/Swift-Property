@@ -47,8 +47,8 @@ class PropertyTableViewCell: UITableViewCell {
         
         let amenities = property.amenities
         propertyBedsLabel.textWithAttachment(text: "\(amenities.beds.count) Bed", imageName: Images.bed)
-        propertyBathsLabel.textWithAttachment(text: "\(amenities.baths.count) Bath", imageName: Images.bed)
-        propertyKitchensLabel.textWithAttachment(text: "\(amenities.kitchens.count) Kitchen", imageName: Images.bed)
+        propertyBathsLabel.textWithAttachment(text: "\(amenities.baths.count) Bath", imageName: Images.bath)
+        propertyKitchensLabel.textWithAttachment(text: "\(amenities.kitchens.count) Kitchen", imageName: Images.kitchen)
         
         propertyCardButton.addTarget(self, action: #selector(onCardSelected), for: .touchUpInside)
         

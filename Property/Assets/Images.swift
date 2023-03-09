@@ -14,6 +14,8 @@ struct Images {
     static let deluxeApartment = "Deluxe Apartment"
     static let james = "James"
     static let bed = "Bed"
+    static let bath = "Bath"
+    static let kitchen = "Kitchen"
     static let mapsOne = "MapsOne"
     static let mapsTwo = "MapsTwo"
     static let mapsThree = "MapsThree"
