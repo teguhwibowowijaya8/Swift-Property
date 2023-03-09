@@ -29,13 +29,13 @@
                         <rect key="frame" x="25" y="65" width="310" height="359"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hCA-jP-2Zh">
-                                <rect key="frame" x="15" y="20.333333333333329" width="280" height="190"/>
+                                <rect key="frame" x="15" y="20.333333333333329" width="280" height="147.66666666666663"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="VaX-wy-m0z"/>
+                                    <constraint firstAttribute="width" secondItem="hCA-jP-2Zh" secondAttribute="height" multiplier="16:9" id="Hld-KG-S53"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WN7-Rv-hsw">
-                                <rect key="frame" x="20" y="225" width="270" height="20.333333333333343"/>
+                                <rect key="frame" x="20" y="182.66666666666666" width="270" height="20.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Property Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABs-QN-6f4">
                                         <rect key="frame" x="0.0" y="0.0" width="157.33333333333334" height="20.333333333333332"/>
@@ -55,7 +55,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yYT-g1-MlT">
-                                <rect key="frame" x="20" y="253.33333333333334" width="270" height="20.333333333333343"/>
+                                <rect key="frame" x="20" y="211" width="270" height="20.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Property Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSM-PJ-tYn">
                                         <rect key="frame" x="0.0" y="0.0" width="183.33333333333334" height="20.333333333333332"/>
@@ -75,7 +75,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" distribution="fillEqually" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Egp-2r-7WQ">
-                                <rect key="frame" x="20" y="281.66666666666669" width="270" height="20.333333333333314"/>
+                                <rect key="frame" x="20" y="239.33333333333331" width="270" height="20.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3Y-kf-9RO">
                                         <rect key="frame" x="0.0" y="0.0" width="84.666666666666671" height="20.333333333333332"/>
