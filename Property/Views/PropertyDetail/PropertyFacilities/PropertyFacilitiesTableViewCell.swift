@@ -13,6 +13,7 @@ class PropertyFacilitiesTableViewCell: UITableViewCell {
     private let horizontalSpacing: CGFloat = 20
     private let verticalSpacing: CGFloat = 10
     private let baseCollectionViewHeight: CGFloat = 200
+    private let maximumCellWidth: CGFloat = 250
     
     var facility: Facility?
     
@@ -49,7 +50,8 @@ class PropertyFacilitiesTableViewCell: UITableViewCell {
         
         let columnPerRow: CGFloat = 2
         let availableWidth = screenWidth - horizontalSpacing * (columnPerRow + 1)
-        flowLayout.itemSize = CGSize(width: availableWidth / columnPerRow, height: baseCollectionViewHeight)
+        let itemWidth = availableWidth / columnPerRow
+        flowLayout.itemSize = CGSize(width: itemWidth > maximumCellWidth ? maximumCellWidth : itemWidth, height: baseCollectionViewHeight)
         
         facilitiesCollectionView.collectionViewLayout = flowLayout
         facilitiesCollectionView.delegate = self
